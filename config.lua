@@ -2,7 +2,6 @@ RSGConfig = {}
 
 RSGConfig.MaxPlayers = GetConvarInt('sv_maxclients', 48) -- Gets max players from config file, default 48
 RSGConfig.DefaultSpawn = vector4(-1035.71, -2731.87, 12.86, 0.0)
-RSGConfig.UpdateInterval = 5                             -- how often to save player data in database in minutes
 RSGConfig.StatusInterval = 5000                          -- how often to update hunger/thirst status in milliseconds
 RSGConfig.HidePlayerNames = true
 
@@ -15,9 +14,6 @@ RSGConfig.Money.PayCheckSociety = false                              -- If true 
 RSGConfig.Money.EnableMoneyItems = true                              -- If true cash and bloodmoney will be represented wih inventory items
 
 RSGConfig.Player = {}
-RSGConfig.Player.HungerRate = 0.10 -- Rate at which hunger goes down.
-RSGConfig.Player.ThirstRate = 0.15 -- Rate at which thirst goes down.
-RSGConfig.Player.CleanlinessRate = 0.01 -- Rate at which cleanliness goes down.
 
 RSGConfig.Player.Bloodtypes = {
     'A+', 'A-', 'B+', 'B-', 'AB+', 'AB-', 'O+', 'O-',
@@ -91,13 +87,13 @@ RSGConfig.Player.PlayerDefaults = {
 
 RSGConfig.Server = {}                                    -- General server config
 RSGConfig.Server.Closed = false                          -- Set server closed (no one can join except people with ace permission 'rsgadmin.join')
-RSGConfig.Server.ClosedReason = 'Server Closed'          -- Reason message to display when people can't join the server
+RSGConfig.Server.ClosedReason = 'Servidor cerrado'          -- Reason message to display when people can't join the server
 RSGConfig.Server.Uptime = 0                              -- Time the server has been up.
 RSGConfig.Server.Whitelist = false                       -- Enable or disable whitelist on the server
 RSGConfig.Server.WhitelistPermission = 'admin'           -- Permission that's able to enter the server when the whitelist is on
 RSGConfig.Server.PVP = true                              -- Enable or disable pvp on the server (Ability to shoot other players)
 RSGConfig.EnablePVP = true
-RSGConfig.Server.Discord = ''                            -- Discord invite link
+RSGConfig.Server.Discord = 'https://discord.gg/AdgPyGfEJYh'                            -- Discord invite link
 RSGConfig.Server.CheckDuplicateLicense = true            -- Check for duplicate rockstar license on join
 RSGConfig.Server.Permissions = { 'god', 'admin', 'mod' } -- Add as many groups as you want here after creating them in your server.cfg
 
