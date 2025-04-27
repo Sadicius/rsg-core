@@ -283,7 +283,7 @@ function RSGCore.Player.CreatePlayer(PlayerData, Offline)
             self.Functions.UpdatePlayerData()
             return
         end
-    
+
         if type(meta) ~= 'string' then return end
         self.PlayerData.metadata[meta] = validateData(meta, val)
         self.Functions.UpdatePlayerData()
@@ -334,7 +334,6 @@ function RSGCore.Player.CreatePlayer(PlayerData, Offline)
             else
                 TriggerEvent('rsg-log:server:CreateLog', 'playermoney', 'AddMoney', 'lightgreen', '**' .. GetPlayerName(self.PlayerData.source) .. ' (citizenid: ' .. self.PlayerData.citizenid .. ' | id: ' .. self.PlayerData.source .. ')** $' .. amount .. ' (' .. moneytype .. ') added, new ' .. moneytype .. ' balance: ' .. self.PlayerData.money[moneytype] .. ' reason: ' .. reason)
             end
-
             if not RSGCore.Config.Money.EnableMoneyItems then
                 TriggerClientEvent('hud:client:OnMoneyChange', self.PlayerData.source, moneytype, amount, false)
             end
@@ -415,19 +414,6 @@ function RSGCore.Player.CreatePlayer(PlayerData, Offline)
         end
     end
 
-    function self.Functions.Logout()
-        if self.Offline then return end
-        RSGCore.Player.Logout(self.PlayerData.source)
-    end
-
-    function self.Functions.AddMethod(methodName, handler)
-        self.Functions[methodName] = handler
-    end
-
-    function self.Functions.AddField(fieldName, data)
-        self[fieldName] = data
-    end
-
     function self.Functions.PersistStateBags()
         local metadata = {}
         local keys = { "hunger", "thirst", "cleanliness", "stress", "health" }
@@ -447,13 +433,26 @@ function RSGCore.Player.CreatePlayer(PlayerData, Offline)
     function self.Functions.InitializeStateBags()
         local metadata = self.PlayerData.metadata
         local keys = { "hunger", "thirst", "cleanliness", "stress", "health" }
-    
+
         local state = Player(self.PlayerData.source).state
         for _, key in ipairs(keys) do
             if metadata[key] ~= nil then
                 state[key] = metadata[key]
             end
         end
+    end
+
+    function self.Functions.Logout()
+        if self.Offline then return end
+        RSGCore.Player.Logout(self.PlayerData.source)
+    end
+
+    function self.Functions.AddMethod(methodName, handler)
+        self.Functions[methodName] = handler
+    end
+
+    function self.Functions.AddField(fieldName, data)
+        self[fieldName] = data
     end
 
     if self.Offline then

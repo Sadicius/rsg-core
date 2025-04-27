@@ -213,7 +213,7 @@ if RSGCore.Config.Money.EnableMoneyItems then
     AddEventHandler('RSGCore:Server:OnMoneyChange', function(src, moneytype, amount, operation, reason)
         local handler = moneyHandlers[operation]
         if handler then 
-            handler(src, moneytype, amount) 
+            handler(src, moneytype, amount)
             TriggerClientEvent('hud:client:OnMoneyChange', src, moneytype, amount, operation == 'remove')
         end
     end)
