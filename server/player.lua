@@ -283,7 +283,7 @@ function RSGCore.Player.CreatePlayer(PlayerData, Offline)
             self.Functions.UpdatePlayerData()
             return
         end
-    
+
         if type(meta) ~= 'string' then return end
         self.PlayerData.metadata[meta] = validateData(meta, val)
         self.Functions.UpdatePlayerData()
@@ -431,14 +431,14 @@ function RSGCore.Player.CreatePlayer(PlayerData, Offline)
     function self.Functions.PersistStateBags()
         local metadata = {}
         local keys = { "hunger", "thirst", "cleanliness", "stress", "health" }
-    
+
         local state = Player(self.PlayerData.source).state
         for _, key in ipairs(keys) do
             if state[key] ~= nil then
                 metadata[key] = state[key]
             end
         end
-    
+
         if next(metadata) then
             self.Functions.SetMetaData(metadata)
         end
@@ -447,7 +447,7 @@ function RSGCore.Player.CreatePlayer(PlayerData, Offline)
     function self.Functions.InitializeStateBags()
         local metadata = self.PlayerData.metadata
         local keys = { "hunger", "thirst", "cleanliness", "stress", "health" }
-    
+
         local state = Player(self.PlayerData.source).state
         for _, key in ipairs(keys) do
             if metadata[key] ~= nil then
