@@ -4,8 +4,28 @@ local StringCharset = {}
 local NumberCharset = {}
 
 RSGShared.StarterItems = {
+    -- basics
+    bandage = { amount = 5, item = 'bandage' },
     bread = { amount = 5, item = 'bread' },
-    water = { amount = 5, item = 'water' },
+    canned_cornedbeef = { amount = 2, item = 'canned_cornedbeef' },
+    canned_peaches = { amount = 5, item = 'canned_peaches' },
+    canteen100 = { amount = 1, item = 'canteen100' },
+
+    -- tools
+    pickaxe = { amount = 1, item = 'pickaxe' },
+    axe = { amount = 1, item = 'axe' },
+    shovel = { amount = 1, item = 'shovel' },
+    waterbucket0 = { amount = 1, item = 'waterbucket0' },
+    goldpan = { amount = 1, item = 'goldpan' },
+
+    -- anti-stress
+    matches = { amount = 1, item = 'matches' },
+    cigarette3 = { amount = 1, item = 'cigarette3' },
+
+    -- weapons first
+    weapon_melee_knife = { amount = 1, item = 'weapon_melee_knife' },
+    weapon_bow = { amount = 1, item = 'weapon_bow' },
+    ammo_arrow = { amount = 1, item = 'ammo_arrow' },
 }
 
 for i = 48, 57 do NumberCharset[#NumberCharset + 1] = string.char(i) end

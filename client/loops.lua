@@ -3,8 +3,8 @@ CreateThread(function()
 
     while true do
         Wait(interval)
-        if LocalPlayer.state.isLoggedIn then 
+        if LocalPlayer.state.isLoggedIn then
             TriggerServerEvent("RSGCore:UpdatePlayer")
-        end     
+        end
     end
 end)
